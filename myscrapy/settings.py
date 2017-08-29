@@ -70,7 +70,7 @@ ROBOTSTXT_OBEY = True
 ITEM_PIPELINES = {
     # 'scrapy.pipeline.images.ImagesPipeline': 1,
     'myscrapy.pipelines.MyImagesPipeline': 1,
-    'myscrapy.pipelines.MyscrapyPipeline': 300,
+    'myscrapy.pipelines.MyScrapyPipeline': 300,
 }
 IMAGES_URLS_FIELD = 'image_url'
 # 配置保存本地的地址

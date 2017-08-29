@@ -9,7 +9,7 @@ from scrapy.http import Request
 from scrapy.exceptions import DropItem
 
 
-class MyscrapyPipeline(object):
+class MyScrapyPipeline(object):
 
     def process_item(self, item, spider):
         try:
