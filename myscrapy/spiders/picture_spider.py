@@ -17,7 +17,7 @@ class PictureSpider(scrapy.Spider):
 
     def parse(self, response):
         try:
-            print 'url : ', response.url
+            # print 'url : ', response.url
             urls = response.xpath('/html/body/div[8]/div/div[3]/img/@src').extract()
             title = response.xpath('/html/body/div[8]/div/div[3]/h1/text()').extract()
 
