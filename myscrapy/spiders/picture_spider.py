@@ -33,6 +33,6 @@ class PictureSpider(scrapy.Spider):
                     full_url = url
                 else:
                     full_url = response.urljoin(url)
-                yield Request(url=full_url, callback=self.parse)
+                yield Request(url=full_url, meta={'item': item}, callback=self.parse)
         except Exception, e:
             print "ERROR : ", e
