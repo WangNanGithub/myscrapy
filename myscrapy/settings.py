@@ -68,8 +68,20 @@ ROBOTSTXT_OBEY = True
 #    'myscrapy.pipelines.MyscrapyPipeline': 300,
 #}
 ITEM_PIPELINES = {
+   # 'scrapy.pipeline.images.ImagesPipeline': 1,
+   'myscrapy.pipelines.MyImagesPipeline': 1,
    'myscrapy.pipelines.MyscrapyPipeline': 300,
 }
+# 图片保存路径
+IMAGES_STORE = 'D:/picture/path/to/valid/dir1'
+# 图片缩略图尺寸
+IMAGES_THUMBS = {
+    'small': (50, 50),
+    'big': (270, 270),
+}
+# 过滤小图片
+IMAGES_MIN_HEIGHT = 110
+IMAGES_MIN_WIDTH = 110
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html

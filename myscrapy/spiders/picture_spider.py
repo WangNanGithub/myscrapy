@@ -23,7 +23,7 @@ class PictureSpider(scrapy.Spider):
 
             item = MyscrapyItem()
             item['title'] = title
-            item['urls'] = urls
+            item['image_urls'] = urls
             yield item
 
             page_urls = response.xpath('/html/body/div[8]/div/ul/span/a/@href').extract()

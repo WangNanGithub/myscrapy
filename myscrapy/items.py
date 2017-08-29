@@ -9,7 +9,7 @@ import scrapy
 
 
 class MyscrapyItem(scrapy.Item):
-    urls = scrapy.Field()
+    image_urls = scrapy.Field()
     title = scrapy.Field()
 
 
