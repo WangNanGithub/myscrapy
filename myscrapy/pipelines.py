@@ -10,7 +10,6 @@ from scrapy.exceptions import DropItem
 
 
 class MyscrapyPipeline(object):
-
     def process_item(self, item, spider):
         try:
             if len(item['title']) > 0:
@@ -22,7 +21,6 @@ class MyscrapyPipeline(object):
 
 
 class MyImagesPipeline(ImagesPipeline):
-
     def get_media_requests(self, item, info):
         for image_url in item['image_urls']:
             yield Request(image_url, meta={'item': item, 'index': item['image_urls'].index(image_url)})
@@ -31,7 +29,7 @@ class MyImagesPipeline(ImagesPipeline):
         item = request.meta['item']  # 通过上面的meta传递过来item
         index = request.meta['index']  # 通过上面的index传递过来列表中当前下载图片的下标
         image_guid = str(index) + '.' + request.url.split('.')[-1]
-        filename = 'full/{0}/{1}'.format(str(item['title'][0].encode('gb2312')), image_guid)
+        filename = 'full/%s/%s/%s' % (unicode(item['page_title']), unicode(item['title'][0]), image_guid)
         return filename
 
     def item_completed(self, results, item, info):

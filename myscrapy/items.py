@@ -11,5 +11,4 @@ import scrapy
 class MyscrapyItem(scrapy.Item):
     image_urls = scrapy.Field()
     title = scrapy.Field()
-
-
+    page_title = scrapy.Field()

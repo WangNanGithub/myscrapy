@@ -78,7 +78,7 @@ IMAGES_URLS_FIELD = 'image_url'
 # IMAGES_STORE = os.path.join(PROJECT_DIR, 'images')  # 组装新的图片路径
 
 # 图片保存路径
-IMAGES_STORE = 'D:/picture/path/to/valid/dir1'
+IMAGES_STORE = '/Users/wangnan/Downloads/spider-pic/picture/'
 # 图片缩略图尺寸
 IMAGES_THUMBS = {
     'small': (50, 50),
