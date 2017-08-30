@@ -68,17 +68,15 @@ ROBOTSTXT_OBEY = True
 #    'myscrapy.pipelines.MyscrapyPipeline': 300,
 # }
 ITEM_PIPELINES = {
-    # 'scrapy.pipeline.images.ImagesPipeline': 1,
     'myscrapy.pipelines.MyImagesPipeline': 1,
-    'myscrapy.pipelines.MyScrapyPipeline': 300,
 }
 IMAGES_URLS_FIELD = 'image_url'
 # 配置保存本地的地址
-# PROJECT_DIR = os.path.abspath(os.path.dirname(__file__))  # 获取当前爬虫项目的绝对路径
+PROJECT_DIR = os.path.abspath(os.path.dirname(__file__))  # 获取当前爬虫项目的绝对路径
 # IMAGES_STORE = os.path.join(PROJECT_DIR, 'images')  # 组装新的图片路径
 
 # 图片保存路径
-IMAGES_STORE = '/Users/wangnan/Downloads/spider-pic/picture/'
+IMAGES_STORE = os.path.join(PROJECT_DIR, 'resource/spider/picture/')
 # 图片缩略图尺寸
 IMAGES_THUMBS = {
     'small': (50, 50),
