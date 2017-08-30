@@ -9,8 +9,7 @@ from scrapy.http import Request
 from scrapy.exceptions import DropItem
 
 
-class MyScrapyPipeline(object):
-
+class MyscrapyPipeline(object):
     def process_item(self, item, spider):
         try:
             if len(item['title']) > 0:
@@ -22,18 +21,15 @@ class MyScrapyPipeline(object):
 
 
 class MyImagesPipeline(ImagesPipeline):
-
     def get_media_requests(self, item, info):
         for image_url in item['image_urls']:
             yield Request(image_url, meta={'item': item, 'index': item['image_urls'].index(image_url)})
 
     def file_path(self, request, response=None, info=None):
-        item = request.meta['item']    # 通过上面的meta传递过来item
+        item = request.meta['item']  # 通过上面的meta传递过来item
         index = request.meta['index']  # 通过上面的index传递过来列表中当前下载图片的下标
-        image_name = str(index) + '.' + request.url.split('.')[-1]
-        print 'full/%s/%s' % (unicode(item['title'][0]), image_name)
-        # filename = 'full/%s/%s' % (str(item['title'][0].encode('gb2312')), image_name)
-        filename = 'full/%s/%s' % (unicode(item['title'][0]), image_name)
+        image_guid = str(index) + '.' + request.url.split('.')[-1]
+        filename = 'full/%s/%s/%s' % (unicode(item['page_title']), unicode(item['title'][0]), image_guid)
         return filename
 
     def item_completed(self, results, item, info):
